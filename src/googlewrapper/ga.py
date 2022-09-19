@@ -1,5 +1,7 @@
 """API Wrapper for Google Analytics"""
 
+from __future__ import annotations
+
 import datetime as dt
 from typing import Optional, Any
 import pandas as pd
