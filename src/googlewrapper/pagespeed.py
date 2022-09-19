@@ -1,5 +1,7 @@
 """API Wrapper for Google Pagespeed Insights"""
 
+from __future__ import annotations
+
 from urllib.parse import urlparse
 from datetime import date
 from typing import Any, Optional
