@@ -5,6 +5,9 @@ class and function below.
 You can have this set to a cron job and 
 have the output emailed or sent to a Google Sheet
 """
+
+from __future__ import annotations
+
 # local classes
 from .ga import GoogleAnalytics
 from .gsc import GoogleSearchConsole
