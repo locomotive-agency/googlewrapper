@@ -80,7 +80,8 @@ class GoogleSheets:
         """
         if self.url is not None:
             p=r".+\/d\/([^\/]+)"
-            if match := re.match(p, self.url):
+            match = re.match(p, self.url)
+            if match:
                 return match.groups()[0]
 
         return None
