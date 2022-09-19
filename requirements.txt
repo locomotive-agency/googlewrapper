@@ -1,6 +1,6 @@
 google-api-python-client==2.4.0
 oauth2client==4.1.3
-pandas==1.4.4
+pandas
 # For Google Sheets
 pygsheets==2.0.5
 # For Google Big Query
