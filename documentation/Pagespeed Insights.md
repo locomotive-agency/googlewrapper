@@ -7,7 +7,7 @@ page_speed = PageSpeed(API_KEY)
 ```
 ## Methods
 ## Examples
-```
+```py
 PSI_KEY = "XXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 
 from googlewrapper import PageSpeed
