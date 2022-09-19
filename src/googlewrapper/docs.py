@@ -1,3 +1,6 @@
+
+from __future__ import annotations
+
 from googlewrapper.connect import Connection
 from typing import Optional
 
