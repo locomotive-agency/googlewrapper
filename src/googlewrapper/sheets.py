@@ -1,5 +1,7 @@
 """API Wrapper for Google Sheets"""
 
+from __future__ import annotations
+
 from typing import Optional, Any
 from pandas import DataFrame, Series
 import re
