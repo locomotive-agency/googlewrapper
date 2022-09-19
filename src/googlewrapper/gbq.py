@@ -1,5 +1,7 @@
 """API Wrapper for Google Big Query"""
 
+from __future__ import annotations
+
 from datetime import date
 from typing import Optional
 from google.cloud import bigquery
