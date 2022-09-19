@@ -1,5 +1,7 @@
 """API Wrapper for Google Search Console"""
 
+from __future__ import annotations
+
 import datetime as dt
 import warnings
 from typing import Optional, Any, Union
