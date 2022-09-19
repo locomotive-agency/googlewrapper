@@ -4,7 +4,9 @@
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 
-General Connector Classes for Google Products 
+General Connector Classes for Google Products
+
+Updated version to work with Python >= 3.7
 
 __Current Wrappers Available__
 
