@@ -27,9 +27,9 @@ class GoogleAnalytics:
     devguides/reporting/core/v4/rest/v4/reports/batchGet
     """
 
-    def __init__(self, view: str, default_view: str = "df") -> None:
+    def __init__(self, view: str, default_view: str = "df", service_account_key: str, service_account_subject: str) -> None:
 
-        self.auth = self.__auth()
+        self.auth = self.__auth(service_account_key, service_account_subject)
         self.set_view(view)
         self.make_df = bool(default_view)
 
@@ -47,9 +47,9 @@ class GoogleAnalytics:
         self._e_date: dt.date = dt.date.today() - dt.timedelta(days=1)
         self.raw_data: dict[Any, Any] = {}
 
-    def __auth(self):
+    def __auth(self, service_account_key: str, service_account_subject: str):
         """Authenticates to Google"""
-        return Connection().ga()
+        return Connection().ga(service_account_key = service_account_key, service_account_subject = service_account_subject)
 
     def set_view(self, view_id: str) -> None:
         """
@@ -344,6 +344,6 @@ class GoogleAnalytics:
             dim_df.index.name = "idx"
             dim_df = dim_df.merge(metric_df, on="idx")
             dim_df.columns = [column.replace("ga:", "") for column in dim_df.columns]
-            final_df = final_df.append(dim_df)
+            final_df = pd.concatd(final_df, dim_df)
 
         return final_df
