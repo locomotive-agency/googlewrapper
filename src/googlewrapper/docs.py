@@ -6,10 +6,10 @@ from typing import Optional
 
 
 class GoogleDocs:
-    def __init__(self, doc_id: Optional[str] = None) -> None:
+    def __init__(self, doc_id: Optional[str] = None, service_account_key: str, service_account_subject: str) -> None:
         self.id = doc_id
         # authentication
-        self.connection = self.__auth()
+        self.connection = self.__auth(service_account_key, service_account_subject)
         # if there is an ID, we will pull the document object
         if doc_id:
             self.doc = self._get_doc()
@@ -22,9 +22,9 @@ class GoogleDocs:
     def __repr__(self):
         return self.__str__()
 
-    def __auth(self):
+    def __auth(self, service_account_key: str, service_account_subject: str):
         """Authenticates to Google"""
-        return Connection().docs()
+        return Connection().docs(service_account_key = service_account_key, service_account_subject = service_account_subject)
 
     def set_id(self, doc_id: str) -> None:
         """Sets the ID to new ID, calls the API to get the new doc"""
