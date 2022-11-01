@@ -6,7 +6,7 @@ from typing import Optional
 
 
 class GoogleDocs:
-    def __init__(self, doc_id: Optional[str] = None, service_account_key: str, service_account_subject: str) -> None:
+    def __init__(self, service_account_key: str, service_account_subject: str, doc_id: Optional[str] = None) -> None:
         self.id = doc_id
         # authentication
         self.connection = self.__auth(service_account_key, service_account_subject)

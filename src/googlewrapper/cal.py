@@ -18,7 +18,7 @@ class GoogleCalendar:
             This is found in your calendar settings
     """
 
-    def __init__(self, cal_id: Optional[str] = None, service_account_key: str, service_account_subject: str):
+    def __init__(self, service_account_key: str, service_account_subject: str, cal_id: Optional[str] = None):
 
         self.service = self.__auth(service_account_key, service_account_subject)
 
