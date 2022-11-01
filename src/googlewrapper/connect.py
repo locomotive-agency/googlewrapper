@@ -80,12 +80,12 @@ class Connection:
             "sheets", "v4", credentials=self._authenticate(scope_list, service_account_key, service_account_subject)
         )
 
-    def gbq(self, service_account_key, service_account_subject):
+    def gbq(self, service_account_key):
         """
         Google Big Query Connection Method
         Requires a different .json file to connect
         """
-        return service_account.Credentials.from_service_account_file(service_account_key, service_account_subject)
+        return service_account.Credentials.from_service_account_file(service_account_key)
 
     def gmail(self, service_account_key, service_account_subject):
         """GMAIL Connection Method"""
