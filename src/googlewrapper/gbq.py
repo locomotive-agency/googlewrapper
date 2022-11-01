@@ -21,16 +21,16 @@ class GoogleBigQuery:
         is not in your path, you need to pass in the path here
     """
 
-    def __init__(self, auth_file_path: str = "gbq-sa.json") -> None:
-        self.auth = self.__auth(auth_file_path)
+    def __init__(self, service_account_key) -> None:
+        self.auth = self.__auth(service_account_key)
         self._client = bigquery.Client(credentials=self.auth)
         self._project: str = self.auth.project_id
         self._dataset: Optional[str] = None
         self._table: Optional[str] = None
 
-    def __auth(self, file):
+    def __auth(self, service_account_key):
         """Authenticates to Google"""
-        return Connection().gbq(file)
+        return Connection().gbq(service_account_key)
 
     def set_dataset(self, dataset_name: str) -> None:
         """
