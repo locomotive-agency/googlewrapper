@@ -344,6 +344,6 @@ class GoogleAnalytics:
             dim_df.index.name = "idx"
             dim_df = dim_df.merge(metric_df, on="idx")
             dim_df.columns = [column.replace("ga:", "") for column in dim_df.columns]
-            final_df = pd.concatd(final_df, dim_df)
+            final_df = pd.concat(final_df, dim_df)
 
         return final_df
