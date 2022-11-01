@@ -18,9 +18,9 @@ class GoogleCalendar:
             This is found in your calendar settings
     """
 
-    def __init__(self, cal_id: Optional[str] = None):
+    def __init__(self, cal_id: Optional[str] = None, service_account_key: str, service_account_subject: str):
 
-        self.service = self.__auth()
+        self.service = self.__auth(service_account_key, service_account_subject)
 
         # pulls all calendars your authentication has access to
         # saves as self.cal_list
@@ -33,9 +33,9 @@ class GoogleCalendar:
         if cal_id is None:
             self.set_calendar()
 
-    def __auth(self):
+    def __auth(self, service_account_key: str, service_account_subject: str):
         """Authenticates to Google"""
-        return Connection().cal()
+        return Connection().cal(service_account_key = service_account_key, service_account_subject = service_account_subject)
 
     def __all_calendars(self) -> None:
         """
