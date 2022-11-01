@@ -27,7 +27,7 @@ class GoogleAnalytics:
     devguides/reporting/core/v4/rest/v4/reports/batchGet
     """
 
-    def __init__(self, view: str, default_view: str = "df", service_account_key: str, service_account_subject: str) -> None:
+    def __init__(self, view: str, service_account_key: str, service_account_subject: str, default_view: str = "df") -> None:
 
         self.auth = self.__auth(service_account_key, service_account_subject)
         self.set_view(view)
