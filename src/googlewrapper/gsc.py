@@ -27,11 +27,11 @@ class GoogleSearchConsole:
             'client_secret.json' is in PATH
     """
 
-    def __init__(self):
+    def __init__(self, service_account_key: str, service_account_subject: str):
 
         # Google API Resourse Object created from
         # Connection class in .connect module
-        self.auth = self.__auth()
+        self.auth = self.__auth(service_account_key, service_account_subject)
 
         # default values for dimensions and date values
         # start date is 7 days ago
@@ -54,9 +54,9 @@ class GoogleSearchConsole:
         # assigned in .ctr()
         self.my_ctr: Optional[pd.DataFrame] = None
 
-    def __auth(self):
+    def __auth(self, service_account_key: str, service_account_subject: str):
         """Authenticates to Google"""
-        return Connection().gsc()
+        return Connection().gsc(service_account_key = service_account_key, service_account_subject = service_account_subject)
 
     def __str__(self) -> str:
         if len(self._site_list) > 1:
