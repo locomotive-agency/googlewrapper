@@ -85,7 +85,7 @@ class Connection:
         Google Big Query Connection Method
         Requires a different .json file to connect
         """
-        return service_account.Credentials.from_service_account_file(sa_file_path)
+        return service_account.Credentials.from_service_account_file(service_account_key, service_account_subject)
 
     def gmail(self, service_account_key, service_account_subject):
         """GMAIL Connection Method"""
